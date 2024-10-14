@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.LibraryController">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="512.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="libTab" text="Library">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="640.0">
+                <children>
+                        <TextField fx:id="searchBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="407.0" />
+                        <Button layoutX="438.0" layoutY="10.0" mnemonicParsing="false" onAction="#search" text="Search" />
+                        <CheckBox fx:id="availableOnly" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" text="showOnlyAvailable" />
+                  <TableView fx:id="bookTableView" layoutY="49.0" prefHeight="361.0" prefWidth="640.0">
+                    <columns>
+                      <TableColumn fx:id="nameColumn" text="Name" />
+                      <TableColumn fx:id="authorColumn" text="Author" />
+                      <TableColumn fx:id="releasedColumn" text="Released" />
+                      <TableColumn fx:id="availableColumn" text="Available" />
+                    </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                  </TableView>
+                        <Text fx:id="selectedBookText" layoutX="34.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No book is selected. . ." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="424.0" />
+                        <Button layoutX="574.0" layoutY="420.0" mnemonicParsing="false" onAction="#lendBook" text="Borrow" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="416.0" />
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="memberTab" text="Member">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="640.0">
+                <children>
+
+                  <TableView fx:id="memberTableView" prefHeight="410.0" prefWidth="640.0">
+                    <columns>
+                      <TableColumn fx:id="mNameColumn" text="Name" />
+                      <TableColumn fx:id="mAuthorColumn" text="Author" />
+                      <TableColumn fx:id="mReleasedColumn" text="Released" />
+                    </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                  </TableView>
+                        <Text fx:id="selectedBookText1" layoutX="34.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No book is selected. . ." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="424.0" />
+                        <Button layoutX="574.0" layoutY="420.0" mnemonicParsing="false" onAction="#returnBook" text="return" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="416.0" />
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Help">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea layoutX="4.0" layoutY="1.0" prefHeight="448.0" prefWidth="633.0" text="Search can be done like html query. &#10;name=bookname&#10;or author=authorname&#10;or  year=year&#10;&#10;Or you can do multiple qury params:&#10;name=bookname,author=authorname&#10;Any combination. Order doesn't matter." wrapText="true" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
